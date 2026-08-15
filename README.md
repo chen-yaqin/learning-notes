@@ -1,7 +1,6 @@
 # Learning Notes
 
-My public learning notes on machine learning, mathematics, research, and other topics.
+My public learning notes on mathematics, statistics, deep learning and other topics.
 
-Website: https://chen-yaqin.github.io/learning-notes
-
+Website: [under construction]
 This website is built with Quartz.
