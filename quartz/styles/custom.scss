@@ -2,3 +2,27 @@
 
 // Keep the presentation intentionally close to Quartz's flat default layout.
 // Typography and the Northwestern palette are configured in quartz.config.yaml.
+
+// Keep the small site credit quiet and tucked into the lower-right corner.
+#quartz-body > footer {
+  margin-bottom: 2rem;
+  color: var(--darkgray);
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: right;
+
+  p {
+    margin: 0;
+  }
+
+  ul {
+    justify-content: flex-end;
+    gap: 0.85rem;
+    margin-top: 0.15rem;
+  }
+
+  a {
+    font-weight: 400;
+  }
+}
