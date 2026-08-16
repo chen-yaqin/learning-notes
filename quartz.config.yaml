@@ -16,30 +16,31 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
+      title: Newsreader
       header: Newsreader
-      body: Newsreader
+      body: Source Sans 3
       code: IBM Plex Mono
     colors:
       lightMode:
-        light: "#ffffff"
-        lightgray: "#eee7f6"
-        gray: "#9b93ab"
-        darkgray: "#413455"
-        dark: "#2f2146"
-        secondary: "#5d3c9b"
-        tertiary: "#8a6ad0"
-        highlight: rgba(126, 91, 194, 0.1)
-        textHighlight: "#eadcff"
+        light: "#faf8f8"
+        lightgray: "#e5e2e8"
+        gray: "#aaa4b0"
+        darkgray: "#4b4650"
+        dark: "#29262d"
+        secondary: "#4e2a84"
+        tertiary: "#836eaa"
+        highlight: rgba(78, 42, 132, 0.1)
+        textHighlight: "#e4dcf0"
       darkMode:
-        light: "#18141f"
-        lightgray: "#30283c"
-        gray: "#8e849d"
-        darkgray: "#ded5e8"
-        dark: "#f6f1fb"
-        secondary: "#c0a7ee"
-        tertiary: "#9675d7"
-        highlight: rgba(192, 167, 238, 0.14)
-        textHighlight: "#5a4478"
+        light: "#171419"
+        lightgray: "#37313d"
+        gray: "#8f8798"
+        darkgray: "#d7d1dc"
+        dark: "#f2eef5"
+        secondary: "#b6acd1"
+        tertiary: "#d8c6ee"
+        highlight: rgba(182, 172, 209, 0.14)
+        textHighlight: "#55456d"
 plugins:
   - source: "@quartz-community/created-modified-date"
     enabled: true
