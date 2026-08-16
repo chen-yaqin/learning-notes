@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: Quartz 5
+  pageTitle: Yaqin's Notes
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
@@ -16,30 +16,30 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: Schibsted Grotesk
-      body: Source Sans Pro
+      header: Newsreader
+      body: Newsreader
       code: IBM Plex Mono
     colors:
       lightMode:
-        light: "#faf8f8"
-        lightgray: "#e5e5e5"
-        gray: "#b8b8b8"
-        darkgray: "#4e4e4e"
-        dark: "#2b2b2b"
-        secondary: "#284b63"
-        tertiary: "#84a59d"
-        highlight: rgba(143, 159, 169, 0.15)
-        textHighlight: "#fff23688"
+        light: "#ffffff"
+        lightgray: "#eee7f6"
+        gray: "#9b93ab"
+        darkgray: "#413455"
+        dark: "#2f2146"
+        secondary: "#5d3c9b"
+        tertiary: "#8a6ad0"
+        highlight: rgba(126, 91, 194, 0.1)
+        textHighlight: "#eadcff"
       darkMode:
-        light: "#161618"
-        lightgray: "#393639"
-        gray: "#646464"
-        darkgray: "#d4d4d4"
-        dark: "#ebebec"
-        secondary: "#7b97aa"
-        tertiary: "#84a59d"
-        highlight: rgba(143, 159, 169, 0.15)
-        textHighlight: "#b3aa0288"
+        light: "#18141f"
+        lightgray: "#30283c"
+        gray: "#8e849d"
+        darkgray: "#ded5e8"
+        dark: "#f6f1fb"
+        secondary: "#c0a7ee"
+        tertiary: "#9675d7"
+        highlight: rgba(192, 167, 238, 0.14)
+        textHighlight: "#5a4478"
 plugins:
   - source: "@quartz-community/created-modified-date"
     enabled: true
@@ -136,9 +136,9 @@ plugins:
   - source: "@quartz-community/favicon"
     enabled: true
   - source: "@quartz-community/og-image"
-    enabled: true
+    enabled: false
   - source: "@quartz-community/cname"
-    enabled: true
+    enabled: false
   - source: "@quartz-community/canvas-page"
     enabled: true
   - source: "@quartz-community/content-page"
@@ -220,8 +220,8 @@ plugins:
     enabled: true
     options:
       links:
-        GitHub: https://github.com/jackyzha0/quartz
-        Discord Community: https://discord.gg/cRFFHYye7t
+        Personal website: https://chen-yaqin.github.io/
+        GitHub: https://github.com/chen-yaqin/learning-notes
     layout:
       position: footer
       priority: 50

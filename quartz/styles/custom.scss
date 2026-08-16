@@ -1,3 +1,416 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+/*
+ * Visual system shared with https://chen-yaqin.github.io/
+ *
+ * Quartz owns the structure and interactions; these rules carry over the
+ * personal site's Newsreader typography, violet palette, airy spacing, and
+ * rounded paper-like surfaces.
+ */
+
+:root {
+  --yaqin-canvas: #fbf8ff;
+  --yaqin-panel: rgba(255, 255, 255, 0.94);
+  --yaqin-panel-strong: #ffffff;
+  --yaqin-border: rgba(108, 72, 163, 0.14);
+  --yaqin-border-strong: rgba(108, 72, 163, 0.24);
+  --yaqin-shadow: 0 18px 42px rgba(91, 58, 145, 0.08);
+  --yaqin-shadow-soft: 0 10px 28px rgba(91, 58, 145, 0.06);
+  --yaqin-text: #261f35;
+  --yaqin-text-soft: #6f6488;
+  --yaqin-accent: #5d3c9b;
+  --yaqin-accent-hover: #47287f;
+  --yaqin-accent-tint: rgba(126, 91, 194, 0.1);
+  --yaqin-radius: 28px;
+  --yaqin-radius-small: 18px;
+}
+
+:root[saved-theme="dark"] {
+  --yaqin-canvas: #121016;
+  --yaqin-panel: rgba(29, 24, 37, 0.94);
+  --yaqin-panel-strong: #1d1825;
+  --yaqin-border: rgba(192, 167, 238, 0.16);
+  --yaqin-border-strong: rgba(192, 167, 238, 0.28);
+  --yaqin-shadow: 0 18px 42px rgba(0, 0, 0, 0.2);
+  --yaqin-shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.14);
+  --yaqin-text: #f2edf7;
+  --yaqin-text-soft: #b5a9c2;
+  --yaqin-accent: #c0a7ee;
+  --yaqin-accent-hover: #d9c8f8;
+  --yaqin-accent-tint: rgba(192, 167, 238, 0.12);
+}
+
+html {
+  background: var(--yaqin-canvas);
+}
+
+body {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(164, 132, 214, 0.08), transparent 25rem),
+    linear-gradient(180deg, var(--yaqin-canvas) 0%, var(--light) 34rem);
+  color: var(--yaqin-text);
+  font-family: var(--bodyFont);
+  font-size: 1.04rem;
+  line-height: 1.72;
+}
+
+::selection {
+  color: #ffffff;
+  background: var(--yaqin-accent);
+}
+
+.page {
+  max-width: 1380px;
+
+  & > #quartz-body {
+    column-gap: 1.9rem;
+    row-gap: 1.5rem;
+
+    @media all and ($desktop) {
+      grid-template-columns: 270px minmax(0, 1fr) 250px;
+    }
+
+    & .sidebar {
+      gap: 1.15rem;
+      padding: 2.1rem 0.35rem 2rem;
+    }
+  }
+}
+
+/* Left rail: site identity and garden navigation. */
+.page-title {
+  margin: 0;
+
+  & a {
+    display: inline-block;
+    color: var(--dark);
+    font-family: var(--titleFont);
+    font-size: clamp(1.85rem, 2.3vw, 2.35rem);
+    font-weight: 700;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+
+    &::after {
+      content: "Digital garden";
+      display: block;
+      margin-top: 0.65rem;
+      color: var(--yaqin-text-soft);
+      font-size: 0.66rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    &:hover {
+      color: var(--yaqin-accent);
+    }
+  }
+}
+
+.sidebar.left {
+  &::before {
+    content: "YQ";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.35rem;
+    height: 2.35rem;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #9f8fc4 0%, #79679e 100%);
+    box-shadow: 0 9px 20px rgba(91, 58, 145, 0.18);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  & > .flex-component {
+    gap: 0.55rem;
+  }
+}
+
+.search-button,
+.darkmode,
+.readermode {
+  border-color: var(--yaqin-border) !important;
+  background: var(--yaqin-panel) !important;
+  box-shadow: var(--yaqin-shadow-soft);
+}
+
+.search-button {
+  border-radius: 999px !important;
+}
+
+.explorer {
+  margin-top: 0.15rem;
+  padding: 1.15rem 1rem;
+  border: 1px solid var(--yaqin-border);
+  border-radius: var(--yaqin-radius-small);
+  background: var(--yaqin-panel);
+  box-shadow: var(--yaqin-shadow-soft);
+
+  button.desktop-explorer h2 {
+    color: var(--dark);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  .explorer-content ul li > a,
+  .folder-container div > a,
+  .folder-container div > button span {
+    color: var(--yaqin-text-soft);
+  }
+
+  .explorer-content ul li > a.active,
+  .explorer-content ul li > a:hover,
+  .folder-container div > a:hover,
+  .folder-container div > button:hover span {
+    color: var(--yaqin-accent);
+  }
+}
+
+/* The reading surface mirrors the white rounded content card on the homepage. */
+#quartz-body > .center {
+  align-self: start;
+  min-width: 0;
+  margin-top: 1.4rem;
+  padding: 1.8rem clamp(1.25rem, 3.2vw, 2.25rem) 1.4rem;
+  border: 1px solid var(--yaqin-border);
+  border-radius: var(--yaqin-radius);
+  background: var(--yaqin-panel-strong);
+  box-shadow: var(--yaqin-shadow);
+}
+
+.page-header {
+  margin-top: 0 !important;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid var(--yaqin-border);
+}
+
+.breadcrumb-container {
+  margin-top: 0;
+  color: var(--yaqin-text-soft);
+  font-size: 0.82rem;
+
+  a {
+    color: var(--yaqin-text-soft);
+  }
+}
+
+.article-title {
+  margin: 0.7rem 0 0;
+  color: var(--dark);
+  font-family: var(--titleFont);
+  font-size: clamp(2.15rem, 4.6vw, 3.45rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+}
+
+.content-meta {
+  margin-top: 0.8rem;
+  color: var(--yaqin-text-soft);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+article {
+  color: var(--yaqin-text);
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--dark);
+    font-family: var(--titleFont);
+    letter-spacing: -0.025em;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    margin-top: 2.25rem;
+    font-size: 1.72rem;
+  }
+
+  h3 {
+    margin-top: 1.75rem;
+    font-size: 1.28rem;
+  }
+
+  p,
+  li {
+    line-height: 1.76;
+  }
+
+  a {
+    color: var(--yaqin-accent);
+
+    &:hover {
+      color: var(--yaqin-accent-hover);
+    }
+
+    &.internal {
+      border-radius: 0.42rem;
+      background: var(--yaqin-accent-tint);
+      padding: 0.04rem 0.22rem;
+    }
+  }
+
+  blockquote {
+    margin: 1.5rem 0;
+    padding: 0.95rem 1.25rem;
+    border-left: 4px solid var(--yaqin-accent);
+    border-radius: 0 var(--yaqin-radius-small) var(--yaqin-radius-small) 0;
+    background: var(--yaqin-accent-tint);
+  }
+
+  img {
+    border-radius: var(--yaqin-radius-small);
+    box-shadow: var(--yaqin-shadow-soft);
+  }
+
+  hr {
+    border-color: var(--yaqin-border);
+  }
+}
+
+pre {
+  border: 1px solid var(--yaqin-border);
+  border-radius: 16px;
+  box-shadow: var(--yaqin-shadow-soft);
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border: 1px solid var(--yaqin-border);
+  border-radius: 14px;
+
+  th {
+    background: var(--yaqin-accent-tint);
+    color: var(--dark);
+  }
+}
+
+/* Right rail: quiet supporting cards, not competing chrome. */
+.sidebar.right > * {
+  padding: 1rem;
+  border: 1px solid var(--yaqin-border);
+  border-radius: var(--yaqin-radius-small);
+  background: var(--yaqin-panel);
+  box-shadow: var(--yaqin-shadow-soft);
+
+  h3 {
+    color: var(--dark);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+}
+
+.toc a,
+.backlinks a {
+  color: var(--yaqin-text-soft);
+
+  &:hover,
+  &.in-view {
+    color: var(--yaqin-accent);
+  }
+}
+
+.graph > .graph-outer {
+  border-radius: 14px;
+  background: var(--yaqin-accent-tint);
+}
+
+#quartz-body > footer {
+  margin-top: 0;
+  padding: 0.4rem 0.35rem 2rem;
+  color: var(--yaqin-text-soft);
+  font-size: 0.84rem;
+
+  a {
+    color: var(--yaqin-accent);
+  }
+}
+
+@media all and ($tablet) {
+  .page > #quartz-body {
+    grid-template-columns: 260px minmax(0, 1fr);
+    column-gap: 1.25rem;
+  }
+
+  #quartz-body > .center {
+    margin-top: 1.4rem;
+  }
+
+  .sidebar.right {
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+@media all and ($mobile) {
+  body {
+    font-size: 1rem;
+  }
+
+  .page > #quartz-body {
+    padding: 0 0.85rem;
+
+    & .sidebar.left {
+      min-height: 4.6rem;
+      padding-top: 1rem;
+      gap: 0.8rem;
+
+      &::before {
+        width: 2rem;
+        height: 2rem;
+        font-size: 0.62rem;
+      }
+    }
+  }
+
+  .page-title a {
+    font-size: 1.5rem;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .explorer {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  #quartz-body > .center {
+    margin-top: 0.35rem;
+    padding: 1.35rem 1rem 1rem;
+    border-radius: 22px;
+  }
+
+  .article-title {
+    font-size: clamp(2rem, 11vw, 2.7rem);
+  }
+
+  .sidebar.right > * {
+    padding: 0.9rem;
+  }
+}
