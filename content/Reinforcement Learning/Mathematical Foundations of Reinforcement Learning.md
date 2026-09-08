@@ -5,10 +5,8 @@ aliases:
   - Mathematical Foundation of Reinforcement Learning
   - Math Foundations of RL
 tags:
-  - reinforcement-learning
-  - machine-learning
+  - rl
   - book-notes
-  - mathematics
 date: 2026-09-07
 source: https://github.com/MathFoundationRL/Book-Mathematical-Foundation-of-Reinforcement-Learning
 ---
