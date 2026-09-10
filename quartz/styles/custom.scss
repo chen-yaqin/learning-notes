@@ -3,6 +3,11 @@
 // Keep the presentation intentionally close to Quartz's flat default layout.
 // Typography and the Northwestern palette are configured in quartz.config.yaml.
 
+// Authored contents pages already provide their own ordered chapter links.
+article.contents-page + .page-listing {
+  display: none;
+}
+
 // Keep the small site credit quiet and tucked into the lower-right corner.
 #quartz-body > footer {
   margin-bottom: 2rem;

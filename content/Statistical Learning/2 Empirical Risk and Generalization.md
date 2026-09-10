@@ -9,7 +9,7 @@ tags:
   - stat615
 ---
 
-[[Statistical Learning/index|Previous: prediction and consistency]] · [[3 Linear Classifiers and Support Vector Machines|Next: linear classifiers and SVMs]]
+[[1 Prediction and Consistency|Previous: prediction and consistency]] · [[3 Linear Classifiers and Support Vector Machines|Next: linear classifiers and SVMs]]
 
 Source: [Lectures 9-13, pp. 31-46](615.pdf#page=31).
 
